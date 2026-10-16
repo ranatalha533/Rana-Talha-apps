@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Apps by Talha — Free Android Apps</title>
-<meta name="description" content="Apps by Talha — Rana Talha ki banayi hui muft Android apps: Post Maker, Urdu Card Maker, Khata App, Apna Media aur bohat kuch. Seedha download karein.">
+<meta name="description" content="Apps by Talha — muft Android apps: Post Maker, Urdu Card Maker, Khata App, Apna Media aur bohat kuch. Seedha download karein.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#0a0f0d;--card:#121a16;--card2:#0e1511;--txt:#f1f5f2;--muted:#9db3a6;--line:rgba(255,255,255,.08);--gold:#d4af37;--gold-l:#f2d675;--gold-d:#8a6d1f;--green:#10b981;--green-d:#065f46}
-body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
-.topbar{position:sticky;top:0;z-index:20;background:rgba(10,15,13,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:rgba(212,175,55,.35)}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(10,15,13,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.35)}
 .topbar .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:10px}
 .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold-d));display:flex;align-items:center;justify-content:center;font-weight:900;color:#1c1405;font-size:18px;box-shadow:0 4px 12px rgba(212,175,55,.35)}
 .brand{font-weight:800;font-size:18px;letter-spacing:.3px}
@@ -25,16 +26,18 @@ body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"
 .sec-title{font-size:20px;font-weight:800;margin:6px 0 16px;display:flex;align-items:center;gap:8px}
 .sec-title .bar{width:5px;height:22px;border-radius:3px;background:linear-gradient(180deg,var(--gold),var(--gold-d))}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
-.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;gap:15px;align-items:flex-start;box-shadow:0 10px 28px rgba(0,0,0,.45);transition:transform .15s ease,border-color .15s ease}
-.card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.5)}
-.card img{width:66px;height:66px;border-radius:17px;flex:none;box-shadow:0 4px 14px rgba(0,0,0,.45);background:#1c2620}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;gap:15px;align-items:flex-start;box-shadow:0 12px 32px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.5);box-shadow:0 18px 38px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05)}
+.card img{width:66px;height:66px;border-radius:17px;flex:none;box-shadow:0 4px 14px rgba(0,0,0,.45);background:#1c2620;border:1px solid rgba(255,255,255,.09)}
 .cinfo{flex:1;min-width:0}
 .cinfo h3{font-size:17px;font-weight:800}
 .cinfo .ver{font-size:12.5px;color:var(--muted);margin-top:3px}
 .stars{font-size:12.5px;color:var(--gold-l);margin-top:5px;min-height:18px}
 .cinfo p{font-size:13.5px;color:var(--muted);margin:8px 0 14px;line-height:1.6}
 .btnrow{display:flex;gap:10px;flex-wrap:wrap}
-.dl{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#1c1405;font-weight:800;font-size:14px;border-radius:12px;padding:10px 22px;text-decoration:none;box-shadow:0 6px 16px rgba(212,175,55,.3)}
+.dl{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#1c1405;font-weight:800;font-size:14px;border-radius:12px;padding:10px 22px;text-decoration:none;box-shadow:0 6px 16px rgba(212,175,55,.3);transition:filter .15s ease,transform .1s ease}
+.dl:hover{filter:brightness(1.09)}
+.dl:active{transform:scale(.97)}
 .rev{display:inline-block;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.5);color:#6ee7b7;font-weight:700;font-size:14px;border-radius:12px;padding:9px 18px;cursor:pointer}
 .rev:hover{background:rgba(16,185,129,.22)}
 .how{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;margin:30px 0;box-shadow:0 8px 24px rgba(0,0,0,.4)}
@@ -44,7 +47,7 @@ body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"
 .n{width:30px;height:30px;flex:none;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-d));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
 .step p{font-size:14px;color:var(--muted);line-height:1.65;padding-top:3px}
 .step p b{color:var(--txt)}
-.note{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.7;background:rgba(212,175,55,.06);border:1px dashed rgba(212,175,55,.4);border-radius:14px;padding:12px 16px}
+.note{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.7;background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.32);border-radius:14px;padding:12px 16px}
 footer{text-align:center;padding:30px 16px 44px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:12px;line-height:2}
 footer b{color:var(--gold)}
 /* ---- review modal ---- */
@@ -83,7 +86,7 @@ footer b{color:var(--gold)}
 
 <div class="hero">
   <h1>Apps <span>by Talha</span></h1>
-  <p>Muft Android apps — seedha download karein, seedha use karein. Har app Rana Talha ki apni banayi hui, mehfooz aur muft.</p>
+  <p>Muft Android apps — seedha download karein, seedha use karein. Har app halki, tez aur bilkul mehfooz.</p>
   <div class="stats">
     <div class="chip">📱 11 Apps</div>
     <div class="chip">✅ 100% Muft</div>
@@ -100,7 +103,7 @@ footer b{color:var(--gold)}
     <div class="step"><div class="n">1</div><p>Kisi bhi app par <b>Download</b> dabayein — download wali screen khul jayegi.</p></div>
     <div class="step"><div class="n">2</div><p>Download mukammal hone ke baad file kholen aur <b>Install</b> dabayein.</p></div>
     <div class="step"><div class="n">3</div><p>Agar phone ijazat mange to is browser ko <b>"Allow from this source"</b> ON karke dobara Install dabayein.</p></div>
-    <div class="note">🛡 <b style="color:var(--gold-l)">Mehfooz hain:</b> ye Rana Talha ki apni signed apps hain. Play Store se bahar install karne par ye ijazat har dafa lazmi hoti hai — ghabrane ki koi baat nahi.</div>
+    <div class="note">🛡 <b style="color:var(--gold-l)">Mehfooz hain:</b> ye tamam apps mehfooz aur verified hain. Play Store se bahar install karne par ye ijazat har dafa lazmi hoti hai — ghabrane ki koi baat nahi.</div>
   </div>
 </div>
 
