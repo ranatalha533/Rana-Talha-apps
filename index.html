@@ -196,12 +196,18 @@ function openReviews(id){
   }
   document.getElementById('rform').style.display = '';
   list.innerHTML = '<div class="rempty">Reviews load ho rahe hain…</div>';
-  db.collection('site_reviews').where('app','==',id).orderBy('ts','desc').limit(30).get().then(function(snap){
-    var n = snap.size, t = 0, html = '';
+  /* no composite index needed: where-only query, sort client-side */
+  db.collection('site_reviews').where('app','==',id).limit(50).get().then(function(snap){
+    var n = snap.size, t = 0, html = '', rows = [];
     snap.forEach(function(d){
-      var r = d.data();
-      t += (typeof r.rating==='number' ? r.rating : 0);
-      var dt = '';
+      var r = d.data(), ms = 0;
+      try { if(r.ts && r.ts.toDate) ms = r.ts.toDate().getTime(); } catch(e){}
+      rows.push({r:r, ms:ms});
+      if(typeof r.rating==='number') t += r.rating;
+    });
+    rows.sort(function(a,b){ return b.ms - a.ms; });
+    rows.slice(0,30).forEach(function(row){
+      var r = row.r, dt = '';
       try { if(r.ts && r.ts.toDate) dt = r.ts.toDate().toLocaleDateString('en-PK',{day:'numeric',month:'short',year:'numeric'}); } catch(e){}
       html += '<div class="ritem"><div class="rh">'+starsTxt(r.rating||0)+' '+esc(r.name||'Gumnaam')+'<span class="dt">'+esc(dt)+'</span></div><div class="rt">'+esc(r.text||'')+'</div></div>';
     });
