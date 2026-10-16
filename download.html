@@ -69,6 +69,11 @@ footer b{color:var(--gold)}
 <footer>© 2026 <b>Apps by Talha</b> — Created by <b>Rana Talha</b></footer>
 
 <script src="apps.js"></script>
+<script src="firebase-config-site.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="site-admin.js"></script>
 <script>
 var MB = 1048576;
 function fmtMB(b){ return (b/MB).toFixed(1) + ' MB'; }
@@ -99,6 +104,7 @@ if(!app){
       retry = document.getElementById('retry'), url = 'apks/' + app.file, totalBytes = 0, busy = false;
 
   function fallback(){
+    if(window.saTrackDownload) saTrackDownload(app.id); /* download started (browser path) */
     fnote.style.display = 'block';
     fnote.textContent = 'Download browser me shuru ho gaya hai — notification ya Downloads folder me dekhein.';
     var a = document.createElement('a'); a.href = url; a.setAttribute('download', app.file);
@@ -113,6 +119,7 @@ if(!app){
     donebox.style.display = 'none'; fnote.style.display = 'none'; retry.style.display = 'none';
     fetch(url).then(function(resp){
       if(!resp.ok || !resp.body || !resp.body.getReader) throw new Error('no-stream');
+      if(window.saTrackDownload) saTrackDownload(app.id); /* download started (stream path) */
       var len = resp.headers.get('Content-Length');
       totalBytes = len ? parseInt(len, 10) : 0;
       var reader = resp.body.getReader(), received = 0, chunks = [];
