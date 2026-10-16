@@ -133,6 +133,8 @@ footer b{color:var(--gold)}
 <script src="firebase-config-site.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="site-admin.js"></script>
 <script>
 /* Cards render */
 var grid = document.getElementById('grid');
@@ -205,20 +207,80 @@ function openReviews(id){
     snap.forEach(function(d){
       var r = d.data(), ms = 0;
       try { if(r.ts && r.ts.toDate) ms = r.ts.toDate().getTime(); } catch(e){}
-      rows.push({r:r, ms:ms});
+      rows.push({r:r, ms:ms, id:d.id});
       if(typeof r.rating==='number') t += r.rating;
     });
     rows.sort(function(a,b){ return b.ms - a.ms; });
-    rows.slice(0,30).forEach(function(row){
-      var r = row.r, dt = '';
-      try { if(r.ts && r.ts.toDate) dt = r.ts.toDate().toLocaleDateString('en-PK',{day:'numeric',month:'short',year:'numeric'}); } catch(e){}
-      html += '<div class="ritem"><div class="rh">'+starsTxt(r.rating||0)+' '+esc(r.name||'Gumnaam')+'<span class="dt">'+esc(dt)+'</span></div><div class="rt">'+esc(r.text||'')+'</div></div>';
-    });
+    rows.slice(0,30).forEach(function(row){ html += reviewRowHTML(row); });
     list.innerHTML = n ? html : '<div class="rempty">Abhi koi review nahi — pehla review aap dein! ⭐</div>';
     sum.textContent = n ? ('⭐ '+(t/n).toFixed(1)+' • '+n+' reviews') : '';
   }).catch(function(){
     list.innerHTML = '<div class="rerr">Reviews abhi uplabdh nahi — thodi dair baad try karein.</div>';
   });
+}
+
+/* ---- Review rows: public owner-reply/like display + owner-only admin controls ---- */
+function reviewRowHTML(row){
+  var r = row.r, id = row.id, dt = '';
+  try { if(r.ts && r.ts.toDate) dt = r.ts.toDate().toLocaleDateString('en-PK',{day:'numeric',month:'short',year:'numeric'}); } catch(e){}
+  var h = '<div class="ritem"><div class="rh">'+starsTxt(r.rating||0)+' '+esc(r.name||'Gumnaam');
+  if(r.ownerLike) h += ' <span class="olike" title="Owner ne pasand kiya">❤️</span>';
+  h += '<span class="dt">'+esc(dt)+'</span></div><div class="rt">'+esc(r.text||'')+'</div>';
+  if(r.reply && r.reply.text){
+    var rdt = '';
+    try { if(r.reply.at) rdt = new Date(r.reply.at).toLocaleDateString('en-PK',{day:'numeric',month:'short',year:'numeric'}); } catch(e){}
+    h += '<div class="oreply"><div class="orh">👑 Owner ka Jawab'+(rdt?'<span class="dt">'+esc(rdt)+'</span>':'')+'</div><div class="ort">'+esc(r.reply.text)+'</div></div>';
+  }
+  if(window.IS_OWNER){
+    h += '<div class="octl"><button class="obtn" onclick="saReplyBox(\''+id+'\',this)">✏️ Reply</button>'
+      + '<button class="obtn" onclick="saToggleLike(\''+id+'\','+(r.ownerLike?1:0)+')">'+(r.ownerLike?'🤍 Unlike':'❤️ Like')+'</button>'
+      + '<button class="obtn danger" onclick="saDelReview(\''+id+'\')">🗑 Delete</button></div>'
+      + '<div class="oreplybox" style="display:none"></div>';
+  }
+  return h + '</div>';
+}
+
+function saPermFail(){ if(window.saToast) saToast('Rules update karna baqi hai'); }
+
+function saToggleLike(id, cur){
+  if(!window.IS_OWNER || !FB_OK) return;
+  db.collection('site_reviews').doc(id).update({ownerLike: !cur})
+    .then(function(){ openReviews(curApp.id); loadSummary(curApp); }).catch(saPermFail);
+}
+
+function saDelReview(id){
+  if(!window.IS_OWNER || !FB_OK) return;
+  if(!confirm('Ye review delete kar dein?')) return;
+  db.collection('site_reviews').doc(id).delete()
+    .then(function(){ openReviews(curApp.id); loadSummary(curApp); }).catch(saPermFail);
+}
+
+function saReplyBox(id, btn){
+  if(!window.IS_OWNER || !FB_OK) return;
+  var box = btn.closest('.ritem').querySelector('.oreplybox');
+  db.collection('site_reviews').doc(id).get().then(function(d){
+    var cur = (d.exists && d.data().reply && d.data().reply.text) || '';
+    box.style.display = 'block';
+    box.innerHTML = '<textarea id="sa-rt-'+id+'" rows="2" maxlength="300" placeholder="Owner ka jawab likhein...">'+esc(cur)+'</textarea>'
+      + '<div class="octl"><button class="obtn" onclick="saSaveReply(\''+id+'\')">💾 Save</button>'
+      + (cur ? '<button class="obtn danger" onclick="saClearReply(\''+id+'\')">✖ Hatayein</button>' : '')
+      + '<button class="obtn" onclick="this.closest(\'.oreplybox\').style.display=\'none\'">Band karein</button></div>';
+  }).catch(saPermFail);
+}
+
+function saSaveReply(id){
+  if(!window.IS_OWNER || !FB_OK) return;
+  var el = document.getElementById('sa-rt-'+id);
+  var t = el ? el.value.trim() : '';
+  if(t.length < 1 || t.length > 300){ if(window.saToast) saToast('Jawab 1–300 harf ka likhein'); return; }
+  db.collection('site_reviews').doc(id).update({reply:{text:t, at:new Date().toISOString()}})
+    .then(function(){ openReviews(curApp.id); }).catch(saPermFail);
+}
+
+function saClearReply(id){
+  if(!window.IS_OWNER || !FB_OK) return;
+  db.collection('site_reviews').doc(id).update({reply: firebase.firestore.FieldValue.delete()})
+    .then(function(){ openReviews(curApp.id); }).catch(saPermFail);
 }
 
 var starEls = document.querySelectorAll('#starpick span');
