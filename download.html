@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download — Apps by Talha</title>
+<meta name="description" content="Apps by Talha — app download karein aur install guide parhein.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f0d;--card:#121a16;--txt:#f1f5f2;--muted:#9db3a6;--line:rgba(255,255,255,.08);--gold:#d4af37;--gold-l:#f2d675;--gold-d:#8a6d1f;--green:#10b981;--green-d:#065f46}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(10,15,13,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .in{max-width:720px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.topbar a.back{color:var(--muted);text-decoration:none;font-size:14px;font-weight:700}
+.topbar a.back:hover{color:var(--gold-l)}
+.logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--gold-d));display:flex;align-items:center;justify-content:center;font-weight:900;color:#1c1405;font-size:16px}
+.brand{font-weight:800;font-size:16px}.brand span{color:var(--gold)}
+.wrap{max-width:720px;margin:0 auto;padding:26px 16px 40px}
+.apphead{display:flex;gap:16px;align-items:center;background:linear-gradient(180deg,var(--card),#0e1511);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 10px 28px rgba(0,0,0,.45)}
+.apphead img{width:76px;height:76px;border-radius:19px;box-shadow:0 4px 14px rgba(0,0,0,.45);background:#1c2620}
+.apphead h1{font-size:21px;font-weight:800}
+.apphead .ver{font-size:13px;color:var(--muted);margin-top:4px}
+.progress-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 20px;margin-top:16px;text-align:center}
+.ptitle{font-size:16px;font-weight:800;margin-bottom:16px}
+.bar-outer{background:#0b100d;border:1px solid var(--line);border-radius:14px;height:26px;overflow:hidden;margin-bottom:14px}
+.bar-inner{height:100%;width:0%;background:linear-gradient(90deg,var(--green),#34d399);border-radius:14px;transition:width .15s linear}
+.pstats{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.pstats b{color:var(--txt);font-size:15px}
+.pct{font-size:34px;font-weight:900;color:var(--gold-l);margin:6px 0 2px}
+.retry{display:none;margin-top:16px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.5);color:#6ee7b7;font-weight:700;font-size:14px;border-radius:12px;padding:11px 22px;cursor:pointer}
+.done-box{display:none;margin-top:14px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.55);border-radius:14px;padding:14px;font-size:14.5px;font-weight:700;color:#6ee7b7;line-height:1.7}
+.fnote{display:none;margin-top:12px;font-size:13px;color:var(--muted);line-height:1.7}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.pick a{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-decoration:none;color:var(--txt);font-size:14px;font-weight:700}
+.pick img{width:40px;height:40px;border-radius:10px}
+.how{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;margin-top:20px}
+.how h2{font-size:18px;margin-bottom:16px}
+.step{display:flex;gap:12px;margin-bottom:13px;align-items:flex-start}
+.step:last-child{margin-bottom:0}
+.n{width:30px;height:30px;flex:none;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-d));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step p{font-size:14px;color:var(--muted);line-height:1.65;padding-top:3px}
+.step p b{color:var(--txt)}
+.note{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.7;background:rgba(212,175,55,.06);border:1px dashed rgba(212,175,55,.4);border-radius:14px;padding:12px 16px}
+footer{text-align:center;padding:26px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:26px}
+footer b{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="back" href="index.html">← Wapas</a>
+  <div class="logo">A</div>
+  <div class="brand">Apps <span>by Talha</span></div>
+</div></div>
+
+<div class="wrap">
+  <div id="content"></div>
+
+  <div class="how" id="howbox">
+    <h2>📲 Install Kaise Karein?</h2>
+    <div class="step"><div class="n">1</div><p>Download mukammal hone ke baad file kholen — <b>upar wali notification</b> se, ya phone ke <b>Downloads</b> folder se.</p></div>
+    <div class="step"><div class="n">2</div><p><b>"Install"</b> ka button dabayein.</p></div>
+    <div class="step"><div class="n">3</div><p>Agar phone ijazat mange to <b>Settings</b> me ja kar is browser ko <b>"Allow from this source"</b> ON karein, phir wapas aa kar dobara <b>Install</b> dabayein.</p></div>
+    <div class="step"><div class="n">4</div><p>Install ho jaye to <b>"Open"</b> dabakar app chala lein.</p></div>
+    <div class="note">🛡 <b style="color:var(--gold-l)">Bilkul mehfooz:</b> ye Rana Talha ki apni signed apps hain. Play Store se bahar install karne par ye ijazat har dafa lazmi hoti hai — ghabrane ki koi baat nahi.</div>
+  </div>
+</div>
+
+<footer>© 2026 <b>Apps by Talha</b> — Created by <b>Rana Talha</b></footer>
+
+<script src="apps.js"></script>
+<script>
+var MB = 1048576;
+function fmtMB(b){ return (b/MB).toFixed(1) + ' MB'; }
+function q(k){ var m = new RegExp('[?&]'+k+'=([^&]*)').exec(location.search); return m ? decodeURIComponent(m[1]) : ''; }
+
+var app = appById(q('app'));
+var box = document.getElementById('content');
+
+if(!app){
+  var h = '<div class="apphead"><div><h1>App chunein</h1><div class="ver">Download ke liye neeche se app select karein</div></div></div><div class="pick" style="margin-top:16px">';
+  APPS.forEach(function(a){ h += '<a href="download.html?app='+a.id+'"><img src="'+a.icon+'" alt="">'+a.name+'</a>'; });
+  box.innerHTML = h + '</div>';
+} else {
+  box.innerHTML =
+    '<div class="apphead"><img src="'+app.icon+'" alt="'+app.name+'"><div><h1>'+app.name+'</h1>'+
+    '<div class="ver">'+app.ver+' • Kul size: '+app.size+'</div></div></div>'+
+    '<div class="progress-card"><div class="ptitle">⬇ Download ho raha hai…</div>'+
+    '<div class="pct" id="pct">0%</div>'+
+    '<div class="bar-outer"><div class="bar-inner" id="bar"></div></div>'+
+    '<div class="pstats"><div>Download hua<br><b id="done">0 MB</b></div><div>Kul size<br><b>'+app.size+'</b></div><div>Baqi<br><b id="left">'+app.size+'</b></div></div>'+
+    '<div class="done-box" id="donebox">✅ <b>Download mukammal — ab install karein!</b><br>Neeche wale steps parh kar app install kar lein.</div>'+
+    '<div class="fnote" id="fnote"></div>'+
+    '<button class="retry" id="retry">↻ Download dobara karein</button></div>';
+
+  var bar = document.getElementById('bar'), pct = document.getElementById('pct'),
+      doneEl = document.getElementById('done'), leftEl = document.getElementById('left'),
+      donebox = document.getElementById('donebox'), fnote = document.getElementById('fnote'),
+      retry = document.getElementById('retry'), url = 'apks/' + app.file, totalBytes = 0, busy = false;
+
+  function fallback(){
+    fnote.style.display = 'block';
+    fnote.textContent = 'Download browser me shuru ho gaya hai — notification ya Downloads folder me dekhein.';
+    var a = document.createElement('a'); a.href = url; a.setAttribute('download', app.file);
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    retry.style.display = 'inline-block';
+  }
+
+  function startDownload(){
+    if(busy) return; busy = true;
+    bar.style.width = '0%'; pct.textContent = '0%';
+    doneEl.textContent = '0 MB'; leftEl.textContent = app.size;
+    donebox.style.display = 'none'; fnote.style.display = 'none'; retry.style.display = 'none';
+    fetch(url).then(function(resp){
+      if(!resp.ok || !resp.body || !resp.body.getReader) throw new Error('no-stream');
+      var len = resp.headers.get('Content-Length');
+      totalBytes = len ? parseInt(len, 10) : 0;
+      var reader = resp.body.getReader(), received = 0, chunks = [];
+      function pump(){
+        return reader.read().then(function(r){
+          if(r.done){ finish(chunks); return; }
+          chunks.push(r.value); received += r.value.length;
+          doneEl.textContent = fmtMB(received);
+          if(totalBytes){
+            var p = Math.min(100, Math.round(received/totalBytes*100));
+            bar.style.width = p + '%'; pct.textContent = p + '%';
+            leftEl.textContent = fmtMB(Math.max(0, totalBytes - received));
+          } else {
+            pct.textContent = fmtMB(received);
+          }
+          return pump();
+        });
+      }
+      return pump();
+    }).catch(function(){ fallback(); busy = false; });
+  }
+
+  function finish(chunks){
+    var blob = new Blob(chunks, {type:'application/vnd.android.package-archive'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = app.file;
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+    bar.style.width = '100%'; pct.textContent = '100%';
+    doneEl.textContent = app.size; leftEl.textContent = '0 MB';
+    document.querySelector('.ptitle').textContent = '✅ Download mukammal';
+    donebox.style.display = 'block'; retry.style.display = 'inline-block';
+    document.getElementById('howbox').scrollIntoView({behavior:'smooth', block:'start'});
+    busy = false;
+  }
+
+  retry.onclick = startDownload;
+  startDownload();
+}
+</script>
+</body>
+</html>
