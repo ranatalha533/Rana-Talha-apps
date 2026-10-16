@@ -1,0 +1,1 @@
+window.FIREBASE_CONFIG = {"apiKey": "AIzaSyBKB_eNy3TB_q0V63WDb_olMsC_Q_SAN1c", "authDomain": "post-maker-62e09.firebaseapp.com", "projectId": "post-maker-62e09", "storageBucket": "post-maker-62e09.firebasestorage.app", "messagingSenderId": "750824069544", "appId": "1:750824069544:web:167c664996c59ac680a59d", "measurementId": "G-CXF5GCKM1F"};
