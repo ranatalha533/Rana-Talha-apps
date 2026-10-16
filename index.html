@@ -3,132 +3,240 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Talha Apps — Free Android Apps</title>
-<meta name="description" content="Rana Talha ki banayi hui muft Android apps download karein — Urdu Card Maker, Khata App, Apna Media, Red Hulk Downloader aur bohat kuch.">
+<title>Apps by Talha — Free Android Apps</title>
+<meta name="description" content="Apps by Talha — Rana Talha ki banayi hui muft Android apps: Post Maker, Urdu Card Maker, Khata App, Apna Media aur bohat kuch. Seedha download karein.">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0a0f0d;--card:#131b17;--txt:#f0f4f1;--muted:#93a89b;--line:rgba(255,255,255,.08);--gold:#d4af37;--gold-d:#8a6d1f;--green:#12b981;--green-d:#065f46}
+:root{--bg:#0a0f0d;--card:#121a16;--card2:#0e1511;--txt:#f1f5f2;--muted:#9db3a6;--line:rgba(255,255,255,.08);--gold:#d4af37;--gold-l:#f2d675;--gold-d:#8a6d1f;--green:#10b981;--green-d:#065f46}
 body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
-.hero{background:linear-gradient(135deg,#0a5c41 0%,#06382a 55%,#041f16 100%);border-bottom:1px solid rgba(212,175,55,.4);padding:56px 20px 44px;text-align:center;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:400px;height:200px;background:radial-gradient(ellipse,rgba(212,175,55,.22),transparent 70%);pointer-events:none}
-.hero h1{font-size:38px;font-weight:800;letter-spacing:.5px;position:relative}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(10,15,13,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .in{max-width:1080px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--gold),var(--gold-d));display:flex;align-items:center;justify-content:center;font-weight:900;color:#1c1405;font-size:18px;box-shadow:0 4px 12px rgba(212,175,55,.35)}
+.brand{font-weight:800;font-size:18px;letter-spacing:.3px}
+.brand span{color:var(--gold)}
+.hero{background:linear-gradient(135deg,#0a5c41 0%,#06382a 55%,#041f16 100%);border-bottom:1px solid rgba(212,175,55,.4);padding:64px 20px 52px;text-align:center;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;top:-70px;left:50%;transform:translateX(-50%);width:440px;height:220px;background:radial-gradient(ellipse,rgba(212,175,55,.25),transparent 70%);pointer-events:none}
+.hero h1{font-size:42px;font-weight:900;letter-spacing:.5px;position:relative}
 .hero h1 span{color:var(--gold)}
-.hero p{color:#cfe3d6;margin-top:10px;font-size:16px;position:relative}
-.badge{display:inline-block;margin-top:14px;background:rgba(0,0,0,.3);border:1px solid rgba(212,175,55,.5);color:#ffe9a8;border-radius:20px;padding:7px 16px;font-size:13px;font-weight:700;position:relative}
-.wrap{max-width:1080px;margin:0 auto;padding:28px 16px 10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;display:flex;gap:15px;align-items:flex-start;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .15s ease,border-color .15s ease}
-.card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.45)}
-.card img{width:64px;height:64px;border-radius:16px;flex:none;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+.hero p{color:#cfe3d6;margin-top:12px;font-size:16px;position:relative;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6}
+.stats{display:flex;gap:10px;justify-content:center;margin-top:18px;position:relative;flex-wrap:wrap}
+.chip{background:rgba(0,0,0,.35);border:1px solid rgba(212,175,55,.5);color:#ffe9a8;border-radius:20px;padding:7px 16px;font-size:13px;font-weight:700}
+.wrap{max-width:1080px;margin:0 auto;padding:30px 16px 10px}
+.sec-title{font-size:20px;font-weight:800;margin:6px 0 16px;display:flex;align-items:center;gap:8px}
+.sec-title .bar{width:5px;height:22px;border-radius:3px;background:linear-gradient(180deg,var(--gold),var(--gold-d))}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;gap:15px;align-items:flex-start;box-shadow:0 10px 28px rgba(0,0,0,.45);transition:transform .15s ease,border-color .15s ease}
+.card:hover{transform:translateY(-3px);border-color:rgba(212,175,55,.5)}
+.card img{width:66px;height:66px;border-radius:17px;flex:none;box-shadow:0 4px 14px rgba(0,0,0,.45);background:#1c2620}
 .cinfo{flex:1;min-width:0}
 .cinfo h3{font-size:17px;font-weight:800}
-.cinfo .ver{font-size:12px;color:var(--muted);margin-top:2px}
-.cinfo p{font-size:13.5px;color:var(--muted);margin:8px 0 12px;line-height:1.55}
-.dl{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#1c1405;font-weight:800;font-size:14px;border-radius:12px;padding:10px 20px;text-decoration:none;box-shadow:0 6px 16px rgba(212,175,55,.3)}
-.dl small{font-weight:600;opacity:.75}
-.how{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;margin:26px 0;box-shadow:0 8px 24px rgba(0,0,0,.4)}
-.how h2{font-size:19px;margin-bottom:14px}
-.step{display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+.cinfo .ver{font-size:12.5px;color:var(--muted);margin-top:3px}
+.stars{font-size:12.5px;color:var(--gold-l);margin-top:5px;min-height:18px}
+.cinfo p{font-size:13.5px;color:var(--muted);margin:8px 0 14px;line-height:1.6}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap}
+.dl{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#1c1405;font-weight:800;font-size:14px;border-radius:12px;padding:10px 22px;text-decoration:none;box-shadow:0 6px 16px rgba(212,175,55,.3)}
+.rev{display:inline-block;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.5);color:#6ee7b7;font-weight:700;font-size:14px;border-radius:12px;padding:9px 18px;cursor:pointer}
+.rev:hover{background:rgba(16,185,129,.22)}
+.how{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;margin:30px 0;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.how h2{font-size:19px;margin-bottom:16px}
+.step{display:flex;gap:12px;margin-bottom:13px;align-items:flex-start}
 .step:last-child{margin-bottom:0}
 .n{width:30px;height:30px;flex:none;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-d));color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
-.step p{font-size:14px;color:var(--muted);line-height:1.6;padding-top:4px}
+.step p{font-size:14px;color:var(--muted);line-height:1.65;padding-top:3px}
 .step p b{color:var(--txt)}
-footer{text-align:center;padding:26px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:10px}
+.note{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.7;background:rgba(212,175,55,.06);border:1px dashed rgba(212,175,55,.4);border-radius:14px;padding:12px 16px}
+footer{text-align:center;padding:30px 16px 44px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:12px;line-height:2}
 footer b{color:var(--gold)}
-@media(max-width:420px){.hero h1{font-size:30px}.card{padding:16px}.card img{width:56px;height:56px}}
+/* ---- review modal ---- */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:50;display:none;align-items:flex-end;justify-content:center}
+.overlay.open{display:flex}
+.modal{background:#101713;border-top:2px solid rgba(212,175,55,.5);border-radius:22px 22px 0 0;width:100%;max-width:560px;max-height:88vh;overflow-y:auto;padding:22px 20px 30px;animation:up .2s ease}
+@keyframes up{from{transform:translateY(30px);opacity:.5}to{transform:none;opacity:1}}
+.modal .mhead{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.modal .mhead img{width:48px;height:48px;border-radius:13px}
+.modal .mhead h3{font-size:17px}
+.modal .mhead .x{margin-left:auto;background:none;border:none;color:var(--muted);font-size:24px;cursor:pointer;padding:4px}
+.rsum{font-size:13.5px;color:var(--gold-l);margin:2px 0 14px}
+.rlist{display:flex;flex-direction:column;gap:12px;margin-bottom:18px}
+.ritem{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.ritem .rh{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700}
+.ritem .rh .dt{margin-left:auto;font-weight:400;color:var(--muted);font-size:11.5px}
+.ritem .rt{font-size:13.5px;color:var(--muted);margin-top:6px;line-height:1.6}
+.rempty,.rerr{font-size:13.5px;color:var(--muted);text-align:center;padding:16px 8px;line-height:1.7}
+.rform h4{font-size:15px;margin-bottom:12px;color:var(--gold-l)}
+.rform label{display:block;font-size:13px;color:var(--muted);margin:10px 0 5px}
+.rform input[type=text],.rform textarea{width:100%;background:#0b100d;border:1px solid var(--line);border-radius:12px;color:var(--txt);padding:11px 13px;font-size:14px;font-family:inherit;resize:vertical}
+.starpick{display:flex;gap:6px;font-size:28px;cursor:pointer;user-select:none}
+.starpick span{color:#3d4a43}
+.starpick span.on{color:var(--gold)}
+.rform .send{margin-top:16px;width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#1c1405;font-weight:800;font-size:15px;border:none;border-radius:12px;padding:13px;cursor:pointer}
+.rmsg{font-size:13px;margin-top:10px;min-height:18px;color:#6ee7b7}
+.rmsg.err{color:#ff9b9b}
+@media(max-width:420px){.hero h1{font-size:32px}.card{padding:16px}.card img{width:58px;height:58px}}
 </style>
 </head>
 <body>
+<div class="topbar"><div class="in">
+  <div class="logo">A</div>
+  <div class="brand">Apps <span>by Talha</span></div>
+</div></div>
+
 <div class="hero">
-  <h1>Talha <span>Apps</span></h1>
-  <p>Muft Android apps — seedha download karein, seedha use karein</p>
-  <div class="badge">📱 10 Apps • 100% Muft</div>
-</div>
-<div class="wrap">
-  <div class="grid">
-
-    <div class="card">
-      <img src="icons/urducard.png" alt="Urdu Card Maker">
-      <div class="cinfo"><h3>Urdu Card Maker</h3><div class="ver">v1.11 • 38 MB</div>
-      <p>Urdu shayari ke khubsurat cards banayein — 21,993 ashaar, 2,050 designs, save aur share karein.</p>
-      <a class="dl" href="apks/urducard.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
-    <div class="card">
-      <img src="icons/khata.png" alt="Khata App">
-      <div class="cinfo"><h3>Khata App</h3><div class="ver">v1.4 • 0.4 MB</div>
-      <p>Rozana hisab-kitab, udhaar (lene/dene) aur munafa — apka digital bahi-khata.</p>
-      <a class="dl" href="apks/khata.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
-    <div class="card">
-      <img src="icons/apnamedia.png" alt="Apna Media">
-      <div class="cinfo"><h3>Apna Media</h3><div class="ver">v2.1 • 0.6 MB</div>
-      <p>Video aur audio player — background play, speed control aur gestures ke sath.</p>
-      <a class="dl" href="apks/apnamedia.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
-    <div class="card">
-      <img src="icons/redhulk.png" alt="Red Hulk Downloader">
-      <div class="cinfo"><h3>Red Hulk Downloader</h3><div class="ver">v2.2 • 37 MB</div>
-      <p>YouTube, TikTok, Instagram, Facebook aur 3 platforms se video download karein.</p>
-      <a class="dl" href="apks/redhulk.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
-    <div class="card">
-      <img src="icons/dolafixpro.png" alt="DolaFix Pro">
-      <div class="cinfo"><h3>DolaFix Pro</h3><div class="ver">v1.9 • 9.2 MB</div>
-      <p>Video se watermark hatayein aur quality ko enhance karein (4K tak).</p>
-      <a class="dl" href="apks/dolafixpro.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
-    <div class="card">
-      <img src="icons/hisabkitab.png" alt="HisabKitab">
-      <div class="cinfo"><h3>HisabKitab</h3><div class="ver">v1.3 • 0.8 MB</div>
-      <p>All in One Calculator — har tarah ka hisab, ek hi app me.</p>
-      <a class="dl" href="apks/hisabkitab.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
-    <div class="card">
-      <img src="icons/yaddahani.png" alt="Yad Dahani">
-      <div class="cinfo"><h3>Yad Dahani</h3><div class="ver">v1.4 • 0.5 MB</div>
-      <p>Rangin notes, checklist aur waqt par reminder — kuch na bhoolein.</p>
-      <a class="dl" href="apks/yaddahani.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
-    <div class="card">
-      <img src="icons/streak90.png" alt="Streak90">
-      <div class="cinfo"><h3>Streak90</h3><div class="ver">v1.5 • 1.1 MB</div>
-      <p>90 din ka habit tracker — buri aadat chhodein, nayi zindagi banayein.</p>
-      <a class="dl" href="apks/streak90.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
-    <div class="card">
-      <img src="icons/scootyrange.png" alt="Scooty Range">
-      <div class="cinfo"><h3>Scooty Range</h3><div class="ver">v2.1 • 0.2 MB</div>
-      <p>Electric scooty ki range ka durust hisab — full charge par kitne km?</p>
-      <a class="dl" href="apks/scootyrange.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
-    <div class="card">
-      <img src="icons/speedo.png" alt="Speedo">
-      <div class="cinfo"><h3>Speedo</h3><div class="ver">v2.2 • 0.1 MB</div>
-      <p>Bina internet ke GPS speedometer — speed, distance aur trip time.</p>
-      <a class="dl" href="apks/speedo.apk" download>⬇ Download <small>APK</small></a></div>
-    </div>
-
+  <h1>Apps <span>by Talha</span></h1>
+  <p>Muft Android apps — seedha download karein, seedha use karein. Har app Rana Talha ki apni banayi hui, mehfooz aur muft.</p>
+  <div class="stats">
+    <div class="chip">📱 11 Apps</div>
+    <div class="chip">✅ 100% Muft</div>
+    <div class="chip">🔒 Mehfooz</div>
   </div>
+</div>
+
+<div class="wrap">
+  <div class="sec-title"><span class="bar"></span>Saari Apps</div>
+  <div class="grid" id="grid"></div>
 
   <div class="how">
     <h2>📲 Install Kaise Karein?</h2>
-    <div class="step"><div class="n">1</div><p><b>Download</b> dabayein — APK file download ho jayegi.</p></div>
-    <div class="step"><div class="n">2</div><p>File kholne par <b>"Unknown apps"</b> ki permission mange to <b>Allow</b> kar dein (sirf pehli dafa).</p></div>
-    <div class="step"><div class="n">3</div><p><b>Install</b> dabayein — app tayyar!</p></div>
+    <div class="step"><div class="n">1</div><p>Kisi bhi app par <b>Download</b> dabayein — download wali screen khul jayegi.</p></div>
+    <div class="step"><div class="n">2</div><p>Download mukammal hone ke baad file kholen aur <b>Install</b> dabayein.</p></div>
+    <div class="step"><div class="n">3</div><p>Agar phone ijazat mange to is browser ko <b>"Allow from this source"</b> ON karke dobara Install dabayein.</p></div>
+    <div class="note">🛡 <b style="color:var(--gold-l)">Mehfooz hain:</b> ye Rana Talha ki apni signed apps hain. Play Store se bahar install karne par ye ijazat har dafa lazmi hoti hai — ghabrane ki koi baat nahi.</div>
   </div>
 </div>
+
 <footer>
-  Sari apps <b>100% muft</b> hain<br><br>
-  Created by <b>Rana Talha</b>
+  Sari apps <b>100% muft</b> hain<br>
+  © 2026 <b>Apps by Talha</b> — Created by <b>Rana Talha</b>
 </footer>
+
+<!-- Review modal -->
+<div class="overlay" id="roverlay"><div class="modal" id="rmodal">
+  <div class="mhead"><img id="micon" src="" alt=""><div><h3 id="mtitle"></h3><div class="rsum" id="msum"></div></div><button class="x" id="mclose" aria-label="Band karein">×</button></div>
+  <div class="rlist" id="rlist"></div>
+  <div class="rform" id="rform">
+    <h4>⭐ Apna review dein</h4>
+    <label for="rname">Naam</label>
+    <input type="text" id="rname" maxlength="40" placeholder="Apna naam likhein">
+    <label>Rating</label>
+    <div class="starpick" id="starpick"><span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span></div>
+    <label for="rtext">Review likhein</label>
+    <textarea id="rtext" rows="3" maxlength="300" placeholder="App ke bare me apni raay likhein..."></textarea>
+    <button class="send" id="rsend">Bhej dein</button>
+    <div class="rmsg" id="rmsg"></div>
+  </div>
+</div></div>
+
+<script src="apps.js"></script>
+<script src="firebase-config-site.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+/* Cards render */
+var grid = document.getElementById('grid');
+APPS.forEach(function(a){
+  var d = document.createElement('div');
+  d.className = 'card';
+  d.innerHTML =
+    '<img src="'+a.icon+'" alt="'+a.name+'">'+
+    '<div class="cinfo"><h3>'+a.name+'</h3>'+
+    '<div class="ver">'+a.ver+' • '+a.size+'</div>'+
+    '<div class="stars" id="stars-'+a.id+'">⭐ …</div>'+
+    '<p>'+a.desc+'</p>'+
+    '<div class="btnrow"><a class="dl" href="download.html?app='+a.id+'">⬇ Download</a>'+
+    '<button class="rev" data-app="'+a.id+'">💬 Reviews</button></div></div>';
+  grid.appendChild(d);
+});
+
+/* ---- Reviews (Firebase Firestore, site_reviews) ---- */
+var db = null, FB_OK = false;
+try {
+  if (typeof firebase !== 'undefined' && window.FIREBASE_CONFIG) {
+    if (!firebase.apps.length) firebase.initializeApp(window.FIREBASE_CONFIG);
+    db = firebase.firestore();
+    FB_OK = true;
+  }
+} catch(e){ FB_OK = false; }
+
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+function starsTxt(n){ var s=''; for(var i=1;i<=5;i++) s += (i<=Math.round(n)?'★':'☆'); return s; }
+
+function loadSummary(a){
+  var el = document.getElementById('stars-'+a.id);
+  if(!FB_OK){ el.textContent = '⭐ —'; return; }
+  db.collection('site_reviews').where('app','==',a.id).get().then(function(snap){
+    var n = snap.size, sum = 0;
+    snap.forEach(function(d){ var r = d.data().rating; if(typeof r==='number') sum += r; });
+    el.textContent = n ? ('⭐ '+ (sum/n).toFixed(1) + ' ('+n+' reviews)') : '⭐ — (koi review nahi)';
+  }).catch(function(){ el.textContent = '⭐ —'; });
+}
+APPS.forEach(loadSummary);
+
+/* Modal */
+var roverlay = document.getElementById('roverlay'), curApp = null, pickRating = 0;
+document.getElementById('mclose').onclick = function(){ roverlay.classList.remove('open'); };
+roverlay.addEventListener('click', function(e){ if(e.target===roverlay) roverlay.classList.remove('open'); });
+
+grid.addEventListener('click', function(e){
+  var b = e.target.closest('.rev'); if(!b) return;
+  openReviews(b.getAttribute('data-app'));
+});
+
+function openReviews(id){
+  curApp = appById(id); pickRating = 0; paintStars();
+  document.getElementById('micon').src = curApp.icon;
+  document.getElementById('mtitle').textContent = curApp.name + ' — Reviews';
+  document.getElementById('rmsg').textContent = '';
+  document.getElementById('rname').value = '';
+  document.getElementById('rtext').value = '';
+  roverlay.classList.add('open');
+  var list = document.getElementById('rlist'), sum = document.getElementById('msum');
+  if(!FB_OK){
+    list.innerHTML = '<div class="rerr">Reviews abhi uplabdh nahi — thodi dair baad try karein.</div>';
+    sum.textContent = ''; document.getElementById('rform').style.display = 'none'; return;
+  }
+  document.getElementById('rform').style.display = '';
+  list.innerHTML = '<div class="rempty">Reviews load ho rahe hain…</div>';
+  db.collection('site_reviews').where('app','==',id).orderBy('ts','desc').limit(30).get().then(function(snap){
+    var n = snap.size, t = 0, html = '';
+    snap.forEach(function(d){
+      var r = d.data();
+      t += (typeof r.rating==='number' ? r.rating : 0);
+      var dt = '';
+      try { if(r.ts && r.ts.toDate) dt = r.ts.toDate().toLocaleDateString('en-PK',{day:'numeric',month:'short',year:'numeric'}); } catch(e){}
+      html += '<div class="ritem"><div class="rh">'+starsTxt(r.rating||0)+' '+esc(r.name||'Gumnaam')+'<span class="dt">'+esc(dt)+'</span></div><div class="rt">'+esc(r.text||'')+'</div></div>';
+    });
+    list.innerHTML = n ? html : '<div class="rempty">Abhi koi review nahi — pehla review aap dein! ⭐</div>';
+    sum.textContent = n ? ('⭐ '+(t/n).toFixed(1)+' • '+n+' reviews') : '';
+  }).catch(function(){
+    list.innerHTML = '<div class="rerr">Reviews abhi uplabdh nahi — thodi dair baad try karein.</div>';
+  });
+}
+
+var starEls = document.querySelectorAll('#starpick span');
+function paintStars(){ starEls.forEach(function(s){ s.classList.toggle('on', +s.getAttribute('data-v') <= pickRating); }); }
+starEls.forEach(function(s){ s.onclick = function(){ pickRating = +s.getAttribute('data-v'); paintStars(); }; });
+
+document.getElementById('rsend').onclick = function(){
+  var msg = document.getElementById('rmsg');
+  var name = document.getElementById('rname').value.trim();
+  var text = document.getElementById('rtext').value.trim();
+  msg.classList.remove('err'); msg.textContent = '';
+  if(!FB_OK){ msg.classList.add('err'); msg.textContent = 'Reviews abhi uplabdh nahi — thodi dair baad try karein.'; return; }
+  if(name.length < 2 || name.length > 40){ msg.classList.add('err'); msg.textContent = 'Naam kam se kam 2 harf ka likhein.'; return; }
+  if(!pickRating){ msg.classList.add('err'); msg.textContent = 'Pehle rating ke sitare chunein (1–5).'; return; }
+  if(text.length < 3 || text.length > 300){ msg.classList.add('err'); msg.textContent = 'Review kam se kam 3 harf ka likhein.'; return; }
+  msg.textContent = 'Bheja ja raha hai…';
+  db.collection('site_reviews').add({
+    app: curApp.id, name: name, rating: pickRating, text: text,
+    ts: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(function(){
+    msg.textContent = 'Shukriya! Apka review save ho gaya. ⭐';
+    document.getElementById('rtext').value = '';
+    openReviews(curApp.id); loadSummary(curApp);
+  }).catch(function(){
+    msg.classList.add('err'); msg.textContent = 'Reviews abhi uplabdh nahi — thodi dair baad try karein.';
+  });
+};
+</script>
 </body>
 </html>
