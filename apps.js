@@ -1,6 +1,6 @@
 /* Apps by Talha — shared app catalog (index.html + download.html dono use karte hain) */
 var APPS = [
-  {id:"postmaker", name:"Post Maker", ver:"v1.9", size:"8.0 MB", file:"postmaker.apk", icon:"icons/postmaker.png",
+  {id:"postmaker", name:"Post Maker", ver:"v2.0", size:"8.0 MB", file:"postmaker.apk", icon:"icons/postmaker.png",
    desc:"Facebook page ke liye rozana posts — real photo, Urdu text aur apna watermark. (Paid membership app)"},
   {id:"urducard", name:"Urdu Card Maker", ver:"v1.12", size:"37.5 MB", file:"urducard.apk", icon:"icons/urducard.png",
    desc:"Urdu shayari ke khubsurat cards banayein — ashaar, designs, save aur share."},
