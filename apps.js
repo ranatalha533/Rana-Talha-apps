@@ -6,7 +6,7 @@ var APPS = [
    desc:"Urdu shayari ke khubsurat cards banayein — ashaar, designs, save aur share."},
   {id:"khata", name:"Khata App", ver:"v1.6", size:"0.3 MB", file:"khata.apk", icon:"icons/khata.png",
    desc:"Dukaan ka digital khata — udhaar (lene/dene), hisab aur backup."},
-  {id:"apnamedia", name:"Apna Media", ver:"v2.7", size:"0.6 MB", file:"apnamedia.apk", icon:"icons/apnamedia.png",
+  {id:"apnamedia", name:"Apna Media", ver:"v2.8", size:"0.6 MB", file:"apnamedia.apk", icon:"icons/apnamedia.png",
    desc:"Video aur audio player — background play, speed control aur gestures."},
   {id:"redhulk", name:"Red Hulk Downloader", ver:"v2.2", size:"35.2 MB", file:"redhulk.apk", icon:"icons/redhulk.png",
    desc:"Video download karein — 2K / 1080p / 720p aur MP3 qualities."},
