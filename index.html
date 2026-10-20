@@ -60,6 +60,11 @@ body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"
 @media(max-width:420px){.prod{flex-direction:column;align-items:center;text-align:center}.prod img{width:140px}}
 footer{text-align:center;padding:30px 16px 44px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:12px;line-height:2}
 footer b{color:var(--gold)}
+/* ---- tab bar (Apps / Products) ---- */
+.tabbar{display:flex;gap:10px;margin-bottom:22px}
+.tabbtn{flex:1;padding:13px 10px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;transition:background .15s ease,color .15s ease,border-color .15s ease}
+.tabbtn:active{transform:scale(.98)}
+.tabbtn.on{background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#1c1405;border-color:transparent;box-shadow:0 6px 16px rgba(212,175,55,.3)}
 /* ---- review modal ---- */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:50;display:none;align-items:flex-end;justify-content:center}
 .overlay.open{display:flex}
@@ -105,10 +110,26 @@ footer b{color:var(--gold)}
 </div>
 
 <div class="wrap">
+  <div class="tabbar">
+    <button class="tabbtn on" id="tab-apps" type="button">📱 Apps</button>
+    <button class="tabbtn" id="tab-products" type="button">🛍️ Products</button>
+  </div>
+
+  <div id="sec-apps">
   <div class="sec-title"><span class="bar"></span>Saari Apps</div>
   <div class="grid" id="grid"></div>
 
-  <div class="sec-title" style="margin-top:36px"><span class="bar"></span>🛍️ Products</div>
+  <div class="how">
+    <h2>📲 Install Kaise Karein?</h2>
+    <div class="step"><div class="n">1</div><p>Kisi bhi app par <b>Download</b> dabayein — download wali screen khul jayegi.</p></div>
+    <div class="step"><div class="n">2</div><p>Download mukammal hone ke baad file kholen aur <b>Install</b> dabayein.</p></div>
+    <div class="step"><div class="n">3</div><p>Agar phone ijazat mange to is browser ko <b>"Allow from this source"</b> ON karke dobara Install dabayein.</p></div>
+    <div class="note">🛡 <b style="color:var(--gold-l)">Mehfooz hain:</b> ye tamam apps mehfooz aur verified hain. Play Store se bahar install karne par ye ijazat har dafa lazmi hoti hai — ghabrane ki koi baat nahi.</div>
+  </div>
+  </div><!-- /sec-apps -->
+
+  <div id="sec-products" style="display:none">
+  <div class="sec-title"><span class="bar"></span>🛍️ Products</div>
   <div class="prod">
     <img src="products/prompt-pack.jpg" alt="Urdu AI Prompt Pack">
     <div class="cinfo">
@@ -118,14 +139,7 @@ footer b{color:var(--gold)}
       <div class="btnrow"><a class="wa" href="https://wa.me/923086349149?text=Assalamualaikum%21%20Mujhe%20Urdu%20AI%20Prompt%20Pack%20%28Sirf%20%241%20%2F%20Rs%20280%29%20khareedna%20hai.%20Payment%20ka%20tareeqa%20bata%20dein." target="_blank" rel="noopener">💬 WhatsApp par Order karein</a></div>
     </div>
   </div>
-
-  <div class="how">
-    <h2>📲 Install Kaise Karein?</h2>
-    <div class="step"><div class="n">1</div><p>Kisi bhi app par <b>Download</b> dabayein — download wali screen khul jayegi.</p></div>
-    <div class="step"><div class="n">2</div><p>Download mukammal hone ke baad file kholen aur <b>Install</b> dabayein.</p></div>
-    <div class="step"><div class="n">3</div><p>Agar phone ijazat mange to is browser ko <b>"Allow from this source"</b> ON karke dobara Install dabayein.</p></div>
-    <div class="note">🛡 <b style="color:var(--gold-l)">Mehfooz hain:</b> ye tamam apps mehfooz aur verified hain. Play Store se bahar install karne par ye ijazat har dafa lazmi hoti hai — ghabrane ki koi baat nahi.</div>
-  </div>
+  </div><!-- /sec-products -->
 </div>
 
 <footer>
@@ -150,6 +164,18 @@ footer b{color:var(--gold)}
   </div>
 </div></div>
 
+<script>
+/* ---- Apps / Products tab toggle ---- */
+function showTab(t){
+  var isApps = (t === 'apps');
+  document.getElementById('sec-apps').style.display = isApps ? '' : 'none';
+  document.getElementById('sec-products').style.display = isApps ? 'none' : '';
+  document.getElementById('tab-apps').classList.toggle('on', isApps);
+  document.getElementById('tab-products').classList.toggle('on', !isApps);
+}
+document.getElementById('tab-apps').onclick = function(){ showTab('apps'); };
+document.getElementById('tab-products').onclick = function(){ showTab('products'); };
+</script>
 <script src="apps.js"></script>
 <script src="firebase-config-site.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
