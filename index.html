@@ -48,6 +48,16 @@ body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"
 .step p{font-size:14px;color:var(--muted);line-height:1.65;padding-top:3px}
 .step p b{color:var(--txt)}
 .note{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.7;background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.32);border-radius:14px;padding:12px 16px}
+/* ---- products ---- */
+.prod{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid rgba(212,175,55,.4);border-radius:22px;padding:20px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 12px 32px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);margin-bottom:6px}
+.prod img{width:150px;border-radius:14px;flex:none;box-shadow:0 6px 18px rgba(0,0,0,.5);background:#0d3b2a;border:1px solid rgba(255,255,255,.09)}
+.prod h3{font-size:18px;font-weight:800}
+.prod .price{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#1c1405;font-weight:900;font-size:14px;border-radius:20px;padding:5px 15px;margin-top:8px;box-shadow:0 4px 12px rgba(212,175,55,.3)}
+.prod p{font-size:13.5px;color:var(--muted);margin:10px 0 15px;line-height:1.65}
+.wa{display:inline-block;background:linear-gradient(135deg,#25d366,#128c4a);color:#fff;font-weight:800;font-size:15px;border-radius:12px;padding:11px 22px;text-decoration:none;box-shadow:0 6px 16px rgba(18,140,74,.35);transition:filter .15s ease,transform .1s ease}
+.wa:hover{filter:brightness(1.08)}
+.wa:active{transform:scale(.97)}
+@media(max-width:420px){.prod{flex-direction:column;align-items:center;text-align:center}.prod img{width:140px}}
 footer{text-align:center;padding:30px 16px 44px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:12px;line-height:2}
 footer b{color:var(--gold)}
 /* ---- review modal ---- */
@@ -97,6 +107,17 @@ footer b{color:var(--gold)}
 <div class="wrap">
   <div class="sec-title"><span class="bar"></span>Saari Apps</div>
   <div class="grid" id="grid"></div>
+
+  <div class="sec-title" style="margin-top:36px"><span class="bar"></span>🛍️ Products</div>
+  <div class="prod">
+    <img src="products/prompt-pack.jpg" alt="Urdu AI Prompt Pack">
+    <div class="cinfo">
+      <h3>Urdu AI Prompt Pack</h3>
+      <span class="price">Sirf $1 • Rs 280</span>
+      <p>Creators ke liye <b style="color:var(--txt)">60 tayyar prompts</b> — Facebook posts, TikTok scripts, captions + hashtags, product descriptions, YouTube titles aur roz ke content ideas. Har prompt ke sath asal example aur expert tip bhi shamil hai. Payment ke baad pack ki <b style="color:var(--txt)">PDF WhatsApp par</b> bhej di jayegi.</p>
+      <div class="btnrow"><a class="wa" href="https://wa.me/923086349149?text=Assalamualaikum%21%20Mujhe%20Urdu%20AI%20Prompt%20Pack%20%28Sirf%20%241%20%2F%20Rs%20280%29%20khareedna%20hai.%20Payment%20ka%20tareeqa%20bata%20dein." target="_blank" rel="noopener">💬 WhatsApp par Order karein</a></div>
+    </div>
+  </div>
 
   <div class="how">
     <h2>📲 Install Kaise Karein?</h2>
