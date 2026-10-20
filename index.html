@@ -57,6 +57,11 @@ body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"
 .wa{display:inline-block;background:linear-gradient(135deg,#25d366,#128c4a);color:#fff;font-weight:800;font-size:15px;border-radius:12px;padding:11px 22px;text-decoration:none;box-shadow:0 6px 16px rgba(18,140,74,.35);transition:filter .15s ease,transform .1s ease}
 .wa:hover{filter:brightness(1.08)}
 .wa:active{transform:scale(.97)}
+.card,.prod{cursor:pointer}
+.hl{list-style:none;margin:10px 0 14px;text-align:left}
+.hl li{font-size:13.5px;color:var(--muted);line-height:1.6;padding:3px 0}
+.hl li::before{content:"✔ ";color:var(--green);font-weight:900}
+.taphint{font-size:12.5px;color:var(--gold-l);margin:-6px 0 12px}
 @media(max-width:420px){.prod{flex-direction:column;align-items:center;text-align:center}.prod img{width:140px}}
 footer{text-align:center;padding:30px 16px 44px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:12px;line-height:2}
 footer b{color:var(--gold)}
@@ -130,21 +135,33 @@ footer b{color:var(--gold)}
 
   <div id="sec-products" style="display:none">
   <div class="sec-title"><span class="bar"></span>🛍️ Products</div>
-  <div class="prod">
+  <div class="prod" data-p="prompt-pack">
     <img src="products/prompt-pack.jpg" alt="Urdu AI Prompt Pack">
     <div class="cinfo">
       <h3>Urdu AI Prompt Pack</h3>
       <span class="price">Sirf $1 • Rs 280</span>
-      <p>Creators ke liye <b style="color:var(--txt)">60 tayyar prompts</b> — Facebook posts, TikTok scripts, captions + hashtags, product descriptions, YouTube titles aur roz ke content ideas. Har prompt ke sath asal example aur expert tip bhi shamil hai. Payment ke baad pack ki <b style="color:var(--txt)">PDF WhatsApp par</b> bhej di jayegi.</p>
+      <ul class="hl">
+        <li>60 ready prompts (English + Urdu)</li>
+        <li>Har prompt ke sath asal example</li>
+        <li>PDF + HTML copy-paste version</li>
+        <li>Sirf $1 • Rs 280</li>
+      </ul>
+      <div class="taphint">👆 Card par tap karein — mukammal tafseel parhein</div>
       <div class="btnrow"><a class="wa" href="https://wa.me/923086349149?text=Assalamualaikum%21%20Mujhe%20Urdu%20AI%20Prompt%20Pack%20%28Sirf%20%241%20%2F%20Rs%20280%29%20khareedna%20hai.%20Payment%20ka%20tareeqa%20bata%20dein." target="_blank" rel="noopener">💬 WhatsApp par Order karein</a></div>
     </div>
   </div>
-  <div class="prod" style="margin-top:14px">
+  <div class="prod" data-p="ai-book-ur" style="margin-top:14px">
     <img src="products/ai-book-ur.jpg" alt="AI se Kamai — Urdu Kitab">
     <div class="cinfo">
       <h3>اے آئی سے کمائی — AI Earning Book (Urdu)</h3>
       <span class="price">Sirf $1 • Rs 280</span>
-      <p>Mobile se freelancing shuru karne ki mukammal Urdu kitab (60 pages) — AI skills, Fiverr gig, pehla client, Payoneer se JazzCash tak. Koi hype nahi, sirf asal steps + 30 din ka action plan.</p>
+      <ul class="hl">
+        <li>60 pages — sirf mobile se kamai</li>
+        <li>Fiverr gig + pehla client</li>
+        <li>Payoneer se JazzCash tak</li>
+        <li>30 din ka action plan • Sirf $1</li>
+      </ul>
+      <div class="taphint">👆 Card par tap karein — mukammal tafseel parhein</div>
       <div class="btnrow"><a class="wa" href="https://wa.me/923086349149?text=Assalamualaikum%21%20Mujhe%20%27AI%20se%20Kamai%27%20Urdu%20kitab%20%28Sirf%20%241%20%2F%20Rs%20280%29%20khareedni%20hai.%20Payment%20ka%20tareeqa%20bata%20dein." target="_blank" rel="noopener">💬 WhatsApp par Order karein</a></div>
     </div>
   </div>
@@ -184,6 +201,16 @@ function showTab(t){
 }
 document.getElementById('tab-apps').onclick = function(){ showTab('apps'); };
 document.getElementById('tab-products').onclick = function(){ showTab('products'); };
+/* product.html / download page se wapas aane par Products tab khula mile */
+if(location.hash === '#products') showTab('products');
+/* Product card click -> detail page (WhatsApp button apna kaam karega, card-click usay override nahi karta) */
+document.querySelectorAll('.prod').forEach(function(el){
+  el.addEventListener('click', function(e){
+    if(e.target.closest('a')) return;
+    var p = el.getAttribute('data-p');
+    if(p) location.href = 'product.html?p=' + p;
+  });
+});
 </script>
 <script src="apps.js"></script>
 <script src="firebase-config-site.js"></script>
@@ -197,6 +224,7 @@ var grid = document.getElementById('grid');
 APPS.forEach(function(a){
   var d = document.createElement('div');
   d.className = 'card';
+  d.setAttribute('data-app', a.id);
   d.innerHTML =
     '<img src="'+a.icon+'" alt="'+a.name+'">'+
     '<div class="cinfo"><h3>'+a.name+'</h3>'+
@@ -240,6 +268,13 @@ roverlay.addEventListener('click', function(e){ if(e.target===roverlay) roverlay
 grid.addEventListener('click', function(e){
   var b = e.target.closest('.rev'); if(!b) return;
   openReviews(b.getAttribute('data-app'));
+});
+
+/* App card click -> detail/download page (Reviews button aur Download link apna kaam karte rahenge) */
+grid.addEventListener('click', function(e){
+  if(e.target.closest('.rev') || e.target.closest('a')) return;
+  var c = e.target.closest('.card'); if(!c) return;
+  var id = c.getAttribute('data-app'); if(id) location.href = 'download.html?app=' + id;
 });
 
 function openReviews(id){
