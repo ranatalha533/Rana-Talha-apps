@@ -42,6 +42,21 @@ body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"
 .step p{font-size:14px;color:var(--muted);line-height:1.65;padding-top:3px}
 .step p b{color:var(--txt)}
 .note{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.7;background:rgba(212,175,55,.06);border:1px solid rgba(212,175,55,.32);border-radius:14px;padding:12px 16px}
+.chiprow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.chip2{display:inline-block;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.45);color:var(--gold-l);border-radius:16px;padding:4px 12px;font-size:12.5px;font-weight:700}
+.detail{background:linear-gradient(180deg,var(--card),#0e1511);border:1px solid var(--line);border-radius:22px;padding:22px;margin-top:16px;box-shadow:0 12px 32px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04)}
+.detail h2{font-size:17px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.detail h2 .bar{width:5px;height:20px;border-radius:3px;background:linear-gradient(180deg,var(--gold),var(--gold-d))}
+.detail h2.mt{margin-top:20px}
+.detail p{font-size:14.5px;color:#dfe7e1;line-height:1.8}
+.feat{list-style:none}
+.feat li{font-size:14.5px;line-height:1.65;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.07);color:#dfe7e1}
+.feat li:last-child{border-bottom:none}
+.feat li::before{content:"✔ ";color:var(--green);font-weight:900}
+.dlbtn{display:block;width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#1c1405;font-weight:900;font-size:17px;border:none;border-radius:14px;padding:16px;cursor:pointer;box-shadow:0 8px 20px rgba(212,175,55,.35);transition:filter .15s ease,transform .1s ease}
+.dlbtn:hover{filter:brightness(1.09)}
+.dlbtn:active{transform:scale(.98)}
+#progarea{display:none}
 footer{text-align:center;padding:26px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:26px}
 footer b{color:var(--gold)}
 </style>
@@ -87,13 +102,18 @@ if(!app){
   APPS.forEach(function(a){ h += '<a href="download.html?app='+a.id+'"><img src="'+a.icon+'" alt="">'+a.name+'</a>'; });
   box.innerHTML = h + '</div>';
 } else {
+  var feats = '';
+  (app.features || []).forEach(function(f){ feats += '<li>'+f+'</li>'; });
   box.innerHTML =
     '<div class="apphead"><img src="'+app.icon+'" alt="'+app.name+'"><div><h1>'+app.name+'</h1>'+
-    '<div class="ver">'+app.ver+' • Kul size: '+app.size+'</div></div></div>'+
-    '<div class="progress-card"><div class="ptitle">⬇ Download ho raha hai…</div>'+
-    '<div class="pct" id="pct">0%</div>'+
+    '<div class="chiprow"><span class="chip2">'+app.ver+'</span><span class="chip2">📦 '+app.size+'</span><span class="chip2">✅ Muft</span></div></div></div>'+
+    '<div class="detail"><h2><span class="bar"></span>ℹ️ Ye app kya karti hai</h2><p>'+app.about+'</p>'+
+    '<h2 class="mt"><span class="bar"></span>⭐ Khaas Features</h2><ul class="feat">'+feats+'</ul></div>'+
+    '<div class="progress-card"><div class="ptitle" id="ptitle">📥 Download ke liye tayyar hai</div>'+
+    '<button class="dlbtn" id="dlstart">⬇ Download karein — '+app.size+'</button>'+
+    '<div id="progarea"><div class="pct" id="pct">0%</div>'+
     '<div class="bar-outer"><div class="bar-inner" id="bar"></div></div>'+
-    '<div class="pstats"><div>Download hua<br><b id="done">0 MB</b></div><div>Kul size<br><b>'+app.size+'</b></div><div>Baqi<br><b id="left">'+app.size+'</b></div></div>'+
+    '<div class="pstats"><div>Download hua<br><b id="done">0 MB</b></div><div>Kul size<br><b>'+app.size+'</b></div><div>Baqi<br><b id="left">'+app.size+'</b></div></div></div>'+
     '<div class="done-box" id="donebox">✅ <b>Download mukammal — ab install karein!</b><br>Neeche wale steps parh kar app install kar lein.</div>'+
     '<div class="fnote" id="fnote"></div>'+
     '<button class="retry" id="retry">↻ Download dobara karein</button></div>';
@@ -101,7 +121,10 @@ if(!app){
   var bar = document.getElementById('bar'), pct = document.getElementById('pct'),
       doneEl = document.getElementById('done'), leftEl = document.getElementById('left'),
       donebox = document.getElementById('donebox'), fnote = document.getElementById('fnote'),
-      retry = document.getElementById('retry'), url = 'apks/' + app.file, totalBytes = 0, busy = false;
+      retry = document.getElementById('retry'),
+      dlstart = document.getElementById('dlstart'), progarea = document.getElementById('progarea'),
+      ptitle = document.getElementById('ptitle'),
+      url = 'apks/' + app.file, totalBytes = 0, busy = false;
 
   function fallback(){
     if(window.saTrackDownload) saTrackDownload(app.id); /* download started (browser path) */
@@ -114,6 +137,7 @@ if(!app){
 
   function startDownload(){
     if(busy) return; busy = true;
+    ptitle.textContent = '⬇ Download ho raha hai…';
     bar.style.width = '0%'; pct.textContent = '0%';
     doneEl.textContent = '0 MB'; leftEl.textContent = app.size;
     donebox.style.display = 'none'; fnote.style.display = 'none'; retry.style.display = 'none';
@@ -157,7 +181,13 @@ if(!app){
   }
 
   retry.onclick = startDownload;
-  startDownload();
+  /* Download sirf button dabane par shuru hota hai — page khulte hi auto-start NAHI.
+     Stats ka counting point bhi yahi hai: saTrackDownload startDownload/fallback ke andar chalta hai. */
+  dlstart.onclick = function(){
+    progarea.style.display = 'block';
+    dlstart.style.display = 'none';
+    startDownload();
+  };
 }
 </script>
 </body>
