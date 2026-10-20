@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product — Apps by Talha</title>
+<meta name="description" content="Apps by Talha — digital products ki mukammal tafseel parhein aur WhatsApp par order karein.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f0d;--card:#121a16;--txt:#f1f5f2;--muted:#9db3a6;--line:rgba(255,255,255,.08);--gold:#d4af37;--gold-l:#f2d675;--gold-d:#8a6d1f;--green:#10b981;--green-d:#065f46}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:rgba(212,175,55,.35)}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(10,15,13,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.35)}
+.topbar .in{max-width:720px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:10px}
+.topbar a.back{color:var(--muted);text-decoration:none;font-size:14px;font-weight:700}
+.topbar a.back:hover{color:var(--gold-l)}
+.logo{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--gold),var(--gold-d));display:flex;align-items:center;justify-content:center;font-weight:900;color:#1c1405;font-size:16px}
+.brand{font-weight:800;font-size:16px}.brand span{color:var(--gold)}
+.wrap{max-width:720px;margin:0 auto;padding:26px 16px 40px}
+.pcover{text-align:center}
+.pcover img{width:280px;max-width:82vw;border-radius:18px;box-shadow:0 14px 36px rgba(0,0,0,.55);border:1px solid rgba(212,175,55,.4);background:#0d3b2a}
+.phead{text-align:center;margin-top:18px}
+.phead h1{font-size:24px;font-weight:900;line-height:1.4}
+.price{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#1c1405;font-weight:900;font-size:15px;border-radius:20px;padding:6px 18px;margin-top:10px;box-shadow:0 4px 12px rgba(212,175,55,.3)}
+.sec{background:linear-gradient(180deg,var(--card),#0e1511);border:1px solid var(--line);border-radius:22px;padding:22px;margin-top:18px;box-shadow:0 12px 32px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04)}
+.sec h2{font-size:18px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sec h2 .bar{width:5px;height:20px;border-radius:3px;background:linear-gradient(180deg,var(--gold),var(--gold-d))}
+.hl{list-style:none}
+.hl li{font-size:15px;line-height:1.65;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.hl li:last-child{border-bottom:none}
+.hl li::before{content:"✔ ";color:var(--green);font-weight:900}
+.body p{font-size:14.5px;line-height:1.8;color:#dfe7e1;margin-bottom:13px}
+.body ul{margin:0 0 13px 20px}
+.body li{font-size:14.5px;line-height:1.75;color:#dfe7e1;margin-bottom:4px}
+.body b{color:var(--txt)}
+.urdu{direction:rtl;text-align:right;border-top:1px solid var(--line);margin-top:18px;padding-top:16px}
+.urdu .udh{font-size:17px;color:var(--gold-l);margin-bottom:12px;text-align:center}
+.urdu p{font-size:15px;line-height:2.05}
+.urdu ul{margin:0 20px 13px 0}
+.urdu li{font-size:15px;line-height:1.95}
+.orderbox{background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.45);border-radius:22px;padding:24px 20px;margin-top:20px;text-align:center}
+.orderbox .op{font-size:15px;color:var(--muted);margin-bottom:14px;line-height:1.7}
+.wa{display:inline-block;background:linear-gradient(135deg,#25d366,#128c4a);color:#fff;font-weight:800;font-size:17px;border-radius:14px;padding:15px 30px;text-decoration:none;box-shadow:0 8px 20px rgba(18,140,74,.4);transition:filter .15s ease,transform .1s ease}
+.wa:hover{filter:brightness(1.08)}
+.wa:active{transform:scale(.97)}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.pick a{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;text-decoration:none;color:var(--txt);font-size:14.5px;font-weight:700;text-align:center}
+.pick img{width:100%;border-radius:10px;margin-bottom:10px}
+footer{text-align:center;padding:26px 16px 40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);margin-top:26px}
+footer b{color:var(--gold)}
+@media(max-width:420px){.phead h1{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <a class="back" href="index.html#products">← Wapas</a>
+  <div class="logo">A</div>
+  <div class="brand">Apps <span>by Talha</span></div>
+</div></div>
+
+<div class="wrap"><div id="content"></div></div>
+
+<footer>© 2026 <b>Apps by Talha</b> — Created by <b>Rana Talha</b></footer>
+
+<template id="tpl-prompt-pack">
+<p>Create better Urdu content in minutes with the <b>Urdu AI Prompt Pack</b> — 60 ready-to-use AI prompts written for creators who post in Urdu. Whether you call them Urdu prompts, ChatGPT prompts or copy-paste AI prompts, every single one is tested and ready: just copy a prompt, fill in the brackets, and get quality Urdu content from any AI tool like ChatGPT or Gemini.</p>
+<p>Every prompt is given in <b>both English and Urdu</b>, so you can use this pack even if you cannot read Urdu script yet — and every prompt comes with a <b>real example output</b> (in Urdu) and a practical tip, so you see exactly what you will get before you use it.</p>
+<p><b>What's inside — 6 categories of Urdu content prompts:</b></p>
+<ul>
+<li><b>Facebook Posts</b> — engaging posts that get reactions and shares</li>
+<li><b>TikTok / Reels Scripts</b> — short video scripts that hold attention</li>
+<li><b>Captions + Hashtags</b> — ready captions with the right hashtags</li>
+<li><b>Product Descriptions</b> — descriptions that help your products sell</li>
+<li><b>YouTube Titles + Descriptions</b> — titles people actually click</li>
+<li><b>Content Ideas</b> — never run out of things to post</li>
+</ul>
+<p><b>You get (digital download):</b></p>
+<ul>
+<li>PDF version — read anywhere, on any phone</li>
+<li>HTML copy-paste version — tap a button, copy the prompt, use it</li>
+</ul>
+<p>Made for Pakistani creators, freelancers and small business owners who want better content from AI tools — no fluff, just prompts that work.</p>
+<p>This is an <b>instant download</b> product: after payment, your files are available right away — no waiting, no shipping.</p>
+<p>If you have any questions, feel free to contact me. I am happy to help you.</p>
+<div class="urdu">
+<div class="udh">— اردو میں تفصیل —</div>
+<p><b>اردو اے آئی پرامپٹ پیک</b> کے ساتھ چند منٹوں میں بہتر اردو کانٹینٹ بنائیں — اردو میں پوسٹ کرنے والے کریئیٹرز کے لیے تیار کردہ <b>60 آزمودہ پرامپٹس</b>۔ ہر پرامپٹ بالکل تیار ہے: بس کاپی کریں، خالی جگہوں (brackets) میں اپنی تفصیل لکھیں، اور ChatGPT یا Gemini جیسے کسی بھی اے آئی ٹول سے معیاری اردو کانٹینٹ حاصل کریں۔</p>
+<p>ہر پرامپٹ <b>انگریزی اور اردو دونوں</b> میں دیا گیا ہے، اس لیے اگر آپ اردو اسکرپٹ نہیں بھی پڑھ سکتے تو بھی یہ پیک آسانی سے استعمال کر سکتے ہیں۔ اور ہر پرامپٹ کے ساتھ ایک <b>اصل مثال (example output)</b> — اردو میں — اور ایک کارآمد ٹپ بھی شامل ہے، تاکہ استعمال سے پہلے ہی آپ کو بالکل اندازہ ہو جائے کہ آپ کو کیا ملے گا۔</p>
+<p><b>اس پیک میں شامل 6 زمرے (categories):</b></p>
+<ul>
+<li><b>فیس بک پوسٹس</b> — دلچسپ پوسٹس جو ری ایکشن اور شیئرز لائیں</li>
+<li><b>ٹک ٹاک / ریلز اسکرپٹس</b> — مختصر ویڈیو اسکرپٹس جو ناظرین کی توجہ برقرار رکھیں</li>
+<li><b>کیپشنز + ہیش ٹیگز</b> — درست ہیش ٹیگز کے ساتھ تیار کیپشنز</li>
+<li><b>پروڈکٹ کی تفصیل</b> — ایسی وضاحتیں جو آپ کی پروڈکٹس بکوانے میں مدد کریں</li>
+<li><b>یوٹیوب ٹائٹلز + تفصیلات</b> — ٹائٹلز جن پر لوگ واقعی کلک کریں</li>
+<li><b>کانٹینٹ آئیڈیاز</b> — پوسٹ کرنے کے لیے آئیڈیاز کبھی ختم نہ ہوں</li>
+</ul>
+<p><b>آپ کو ملتا ہے (ڈیجیٹل ڈاؤن لوڈ):</b></p>
+<ul>
+<li>PDF ورژن — کہیں بھی، کسی بھی فون پر پڑھیں</li>
+<li>HTML کاپی پیسٹ ورژن — بٹن دبائیں، پرامپٹ کاپی کریں، استعمال کریں</li>
+</ul>
+<p>یہ پیک پاکستانی کریئیٹرز، فری لانسرز اور چھوٹے کاروباری افراد کے لیے بنایا گیا ہے جو اے آئی ٹولز سے بہتر کانٹینٹ چاہتے ہیں — کوئی فضول باتیں نہیں، بس وہ پرامپٹس جو واقعی کام کرتے ہیں۔</p>
+<p>یہ <b>فوری ڈاؤن لوڈ (instant download)</b> پروڈکٹ ہے: ادائیگی کے فوراً بعد آپ کی فائلیں دستیاب ہو جاتی ہیں — نہ انتظار، نہ ڈیلیوری۔</p>
+<p>اگر آپ کا کوئی سوال ہو تو بلا جھجک مجھ سے رابطہ کریں۔ مجھے آپ کی مدد کر کے خوشی ہوگی۔</p>
+</div>
+</template>
+
+<template id="tpl-ai-book-ur">
+<p><b>AI Se Kamai</b> is a complete Urdu freelancing guide that teaches you how to earn money online in Pakistan using only your mobile phone — no laptop needed. If you have been searching for a Fiverr guide in Urdu, a mobile earning book, or an honest way to start freelancing in Urdu, this book was written for you. Inside this Urdu earning guide you will find 6 real online jobs you can do from your phone (with real rates), a complete Fiverr gig setup recipe, ready-to-send messages for your first client, the full method to bring your money home (Payoneer to JazzCash), protection from frauds and scams, and a day-by-day 30-day action plan. This is a digital download ebook in easy Urdu — honest and practical, with no fake promises.</p>
+<div class="urdu">
+<div class="udh">— اردو میں تفصیل —</div>
+<p>60 صفحات کی مکمل اردو کتاب — صرف موبائل سے آن لائن کمائی سیکھنے کے لیے۔ لیپ ٹاپ کی ضرورت نہیں۔</p>
+<p><b>اس میں ہے:</b></p>
+<ul>
+<li>موبائل سے کیے جانے والے 6 اصل کام (اصل ریٹس کے ساتھ)</li>
+<li>فائیور پر گِگ بنانے کی مکمل ترکیب</li>
+<li>پہلا کلائنٹ ڈھونڈنے کے تیار پیغامات</li>
+<li>پیسے پاکستان لانے کا پورا طریقہ (Payoneer سے JazzCash تک)</li>
+<li>فراڈ اور اسکیموں سے بچاؤ</li>
+<li>30 دن کا روز بہ روز ایکشن پلان</li>
+<li>ہر باب کے آخر میں چیک لسٹ + 20 تیار پرامپٹس</li>
+</ul>
+<p>نہ ہوائی باتیں، نہ جھوٹے دعوے — صرف سچ اور آزمودہ طریقہ۔</p>
+</div>
+<p>This is an <b>instant download</b> product: after payment, your book is available right away as a PDF — read it on any phone.</p>
+<p>If you have any questions, feel free to contact me. I am happy to help you.</p>
+</template>
+
+<script>
+function q(k){ var m = new RegExp('[?&]'+k+'=([^&]*)').exec(location.search); return m ? decodeURIComponent(m[1]) : ''; }
+
+var PRODUCTS = {
+  "prompt-pack": {
+    name: "Urdu AI Prompt Pack",
+    price: "Sirf $1 • Rs 280",
+    img: "products/prompt-pack.jpg",
+    tpl: "tpl-prompt-pack",
+    highlights: ["60 ready prompts (English + Urdu)", "Har prompt ke sath asal example", "PDF + HTML copy-paste version", "Sirf $1 • Rs 280"],
+    wa: "https://wa.me/923086349149?text=Assalamualaikum%21%20Mujhe%20Urdu%20AI%20Prompt%20Pack%20%28Sirf%20%241%20%2F%20Rs%20280%29%20khareedna%20hai.%20Payment%20ka%20tareeqa%20bata%20dein.",
+    note: "Order karne ke baad pack ki PDF WhatsApp par bhej di jayegi."
+  },
+  "ai-book-ur": {
+    name: "اے آئی سے کمائی — AI Earning Book (Urdu)",
+    price: "Sirf $1 • Rs 280",
+    img: "products/ai-book-ur.jpg",
+    tpl: "tpl-ai-book-ur",
+    highlights: ["60 pages — sirf mobile se kamai", "Fiverr gig + pehla client", "Payoneer se JazzCash tak", "30 din ka action plan • Sirf $1"],
+    wa: "https://wa.me/923086349149?text=Assalamualaikum%21%20Mujhe%20%27AI%20se%20Kamai%27%20Urdu%20kitab%20%28Sirf%20%241%20%2F%20Rs%20280%29%20khareedni%20hai.%20Payment%20ka%20tareeqa%20bata%20dein.",
+    note: "Order karne ke baad kitab ki PDF WhatsApp par bhej di jayegi."
+  }
+};
+
+var box = document.getElementById('content');
+var p = PRODUCTS[q('p')];
+
+if(!p){
+  var h = '<div class="phead"><h1>🛍️ Products</h1></div><div class="pick">';
+  for(var k in PRODUCTS){ var it = PRODUCTS[k]; h += '<a href="product.html?p='+k+'"><img src="'+it.img+'" alt="">'+it.name+'<br><span style="color:var(--gold-l)">'+it.price+'</span></a>'; }
+  box.innerHTML = h + '</div>';
+} else {
+  document.title = p.name + ' — Apps by Talha';
+  var hl = '';
+  p.highlights.forEach(function(x){ hl += '<li>'+x+'</li>'; });
+  box.innerHTML =
+    '<div class="pcover"><img src="'+p.img+'" alt="'+p.name+'"></div>'+
+    '<div class="phead"><h1>'+p.name+'</h1><span class="price">'+p.price+'</span></div>'+
+    '<div class="sec"><h2><span class="bar"></span>✨ Khaas Baatein</h2><ul class="hl">'+hl+'</ul></div>'+
+    '<div class="sec"><h2><span class="bar"></span>📖 Mukammal Tafseel</h2><div class="body" id="pbody"></div></div>'+
+    '<div class="orderbox"><div class="op">'+p.note+'<br>Payment ka tareeqa (JazzCash waghera) WhatsApp par bata diya jayega.</div>'+
+    '<a class="wa" href="'+p.wa+'" target="_blank" rel="noopener">💬 WhatsApp par Order karein</a></div>';
+  var tpl = document.getElementById(p.tpl);
+  document.getElementById('pbody').appendChild(document.importNode(tpl.content, true));
+}
+</script>
+</body>
+</html>
