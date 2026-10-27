@@ -32,7 +32,7 @@ var APPS = [
    desc:"Rangin notes, checklist aur waqt par reminders — kuch na bhoolein.",
    about:"Google Keep jaisi rangin notes app — notes aur checklists banayein, har cheez ke liye alag reminder lagayein, aur koi kaam kabhi na bhoolein.",
    features:["Rangin Keep-style note cards — apni pasand ka rang chunein","Checklist notes — har item ke liye alag reminder","Reminders: aik dafa ya rozana repeat, exact time par","Ahem notes ko pin karein aur search se foran dhundein","Dark / Light / Auto theme"]},
-  {id:"streak90", name:"Streak90", ver:"v1.5", size:"1.1 MB", file:"streak90.apk", icon:"icons/streak90.png",
+  {id:"streak90", name:"Streak90", ver:"v1.6.6", size:"1.3 MB", file:"streak90.apk", icon:"icons/streak90.png",
    desc:"90 din ka habit tracker — buri aadat chhodein, nayi zindagi banayein.",
    about:"90 din ka habit challenge — buri aadat chhorna ho ya nayi achi aadat banana ho, rozana check-in karke apni streak banaye rakhein aur progress apni ankhon se dekhein.",
    features:["90 din ka mukammal habit challenge","Rozana check-in — streak tootne na dein","Apni progress aur guzishta dinon ka record dekhein","Buri aadat chhorne ya nayi aadat banane — dono ke liye"]},
