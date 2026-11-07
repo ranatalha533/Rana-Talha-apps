@@ -1,6 +1,6 @@
 /* Apps by Talha — shared app catalog (index.html + download.html dono use karte hain) */
 var APPS = [
-  {id:"redhulkvpn", name:"Red Hulk VPN", ver:"v1.0", size:"10.4 MB", file:"redhulkvpn-v35-release.zip", icon:"icons/redhulkvpn.png",
+  {id:"redhulkvpn", name:"Red Hulk VPN", ver:"v1.0", size:"20.3 MB", file:"redhulkvpn.apk", icon:"icons/redhulkvpn.png",
    desc:"Tez aur mehfooz VPN — UK London server, WireGuard aur OpenVPN. Aik account = aik device.",
    about:"Red Hulk VPN — apna VPN, UK London server ke sath. WireGuard aur OpenVPN engines, tez aur stable connection. Aik account sirf aik device par chalta hai. Data packages: Rs 150 = 20GB, Rs 200 = 30GB, Rs 300 = 50GB (30 din); naya trial 3 din + 3GB.",
    features:["UK London server — TikTok UK aur Facebook ke liye","WireGuard (TLS) aur OpenVPN (TLS) — WiFi aur mobile data dono par","Aik account = aik device — device lock ke sath mehfooz","Data packages Rs 150 / Rs 200 / Rs 300 — 30 din, 20GB / 30GB / 50GB","Koi browsing ya data log nahi — sirf account aur data usage","WhatsApp support — madad ke liye aik message door"]},
